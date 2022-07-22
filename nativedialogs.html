@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Native Dialogs</title>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"
+      integrity="sha512-Qr/d6af6cN41/GIKiSmrQd4Y19/fo0YvWhD1VND8O+BsfbFBaZI4K7VVPoUZrd8PzMQ3CE71CkMjhrKf1NbhdQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <button id="alert">Alert</button>
+
+    <div style="margin-top: 2rem;">
+      <button id="confirm">Confirm</button>
+      <output id="confirmOutput">
+        The value returned by the confirm method is:
+      </output>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      <button id="prompt">Prompt</button>
+      <output id="promptOutput">
+        The value returned by the prompt method is:
+      </output>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      <button id="saferPrompt">Safer Prompt</button>
+      <output id="saferPromptOutput">
+        The value returned by the safer prompt method is:
+      </output>
+    </div>
+
+    <script>
+      const alertButton = document.getElementById("alert");
+      const confirmButton = document.getElementById("confirm");
+      const promptButton = document.getElementById("prompt");
+      const saferPromptButton = document.getElementById("saferPrompt");
+
+      const confirmOutput = document.getElementById("confirmOutput");
+      const promptOutput = document.getElementById("promptOutput");
+      const saferPromptOutput = document.getElementById("saferPromptOutput");
+
+      alertButton.addEventListener("click", () => {
+        window.alert("Hello World!");
+      });
+
+      confirmButton.addEventListener("click", () => {
+        const result = window.confirm("Are you sure?");
+        confirmOutput.textContent = `The value returned by the confirm method is: ${result}`;
+      });
+
+      promptButton.addEventListener("click", () => {
+        const result = window.prompt("Fill in message");
+
+        promptOutput.textContent = `The value returned by the prompt method is: ${
+          result || "User didn't enter anything"
+        }`;
+      });
+
+      saferPromptButton.addEventListener("click", () => {
+        const result = window.prompt("Fill in message");
+
+        // purify result
+        const purifiedResult = DOMPurify.sanitize(result);
+
+        saferPromptOutput.textContent = `The value returned by the safer prompt method is: ${
+          purifiedResult || "User didn't enter anything"
+        }`;
+      });
+    </script>
+  </body>
+</html>

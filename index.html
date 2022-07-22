@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Delvin's Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      .test-css {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="layout">
+      <a class="header-title" href="/">Delvin Tuankun</a>
+      <nav>
+        <ul class="navbar space">
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experiences">Experiences</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contacts">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero layout">
+        <div class="hero-title">
+          <h2>Hello!</h2>
+          <h1>I'm <span class="accent">Delvin Tuankun</span></h1>
+
+          <p class="hero-desc">
+            A Computer Science Student at University of California, San Diego
+          </p>
+
+          <a href="#education" class="cta">
+            <svg
+              class="arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+              />
+            </svg>
+            Find more about me
+          </a>
+        </div>
+        <div class="hero-img">
+          <picture>
+            <source media="(min-width:1200px)" srcset="images/me@1200.png" />
+            <img src="images/me.jpeg" alt="photo of me" />
+          </picture>
+        </div>
+      </section>
+
+      <div class="layout">
+        <hr class="hr" />
+      </div>
+
+      <section id="education" class="layout education">
+        <div class="education-header">
+          <p class="education-header-subtitle">My Journey</p>
+          <h2><span class="underline-accent">Education</span></h2>
+        </div>
+        <div class="education-layout">
+          <div class="education-content">
+            <h3>University of California, San Diego - San Diego, CA</h3>
+            <p>Major: Computer Science B.S.</p>
+            <aside>
+              <p>
+                <em>The University of California, San Diego</em> is a public
+                land-grant research university in San Diego,
+              </p>
+            </aside>
+            <!-- https://www.collegevine.com/schools/university-of-california-san-diego-ucsd -->
+          </div>
+          <div class="education-image">
+            <picture>
+              <source
+                media="(min-width:1200px)"
+                srcset="images/ucsd@1200.jpeg"
+              />
+              <img src="images/ucsd.jpg" alt="ucsd" />
+            </picture>
+          </div>
+        </div>
+
+        <div class="education-layout-reverse">
+          <div class="education-content">
+            <h3>Diablo Valley College - Pleasant Hill, CA</h3>
+            <p>Major: Computer Science</p>
+            <p>Awards & Honors: Alpha Gamma Sigma (DVC)</p>
+            <p>Courseworks in Diablo Valley College:</p>
+            <table class="education-table">
+              <colgroup>
+                <col style="width: 80%;" />
+                <col style="width: 20%;" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Code</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Advance Data Structures</td>
+                  <td>CSE 100</td>
+                </tr>
+                <tr>
+                  <td>Component & Design Tech/ Digital System</td>
+                  <td>CSE 140</td>
+                </tr>
+                <tr>
+                  <td>Theory of Computation</td>
+                  <td>CSE 150</td>
+                </tr>
+                <tr>
+                  <td>Intro/Computer Architecture</td>
+                  <td>CSE 141</td>
+                </tr>
+                <tr>
+                  <td>Teach Computation/ Digital World</td>
+                  <td>EDS 124 AR</td>
+                </tr>
+                <tr>
+                  <td>Teach Computational Thinking</td>
+                  <td>EDS 124 BR</td>
+                </tr>
+                <tr>
+                  <td>Data Science in Practice</td>
+                  <td>COGS 108</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="education-image">
+            <picture>
+              <source
+                media="(min-width:1200px)"
+                srcset="images/diablo-valley@1200.jpg"
+              />
+              <img src="images/diablo-valley.jpg" alt="Diablo Valley" />
+            </picture>
+          </div>
+        </div>
+
+        <!-- Courseworks for Education in Diablo Valley College -->
+      </section>
+
+      <section id="#experiences" class="layout experience">
+        <h2><span class="underline-accent">Experiences</span></h2>
+        <ol>
+          <li class="space">
+            <h3>PT Sinar Elektronika SEB Jakarta</h3>
+            <p>
+              Design Engineer Intern on Electrical Control Panel Design
+            </p>
+            <p class="experience-date">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Jul 2019 – Aug 2019
+            </p>
+            <ol class="experience-list space">
+              <li>
+                <strong>Prototyping </strong>: Worked with other senior design
+                engineers to re-model electrical control panel and server rack
+                based on detailed drawing using CAD programming tools such as
+                Solidworks and AutoCAD. Assembled all components into one using
+                Solidworks to checked the overall design. Made a detailed
+                drawing of each component using AutoCAD with preferred
+                dimensions and transferred the files to the production team.
+              </li>
+              <li>
+                <strong>Hardware Assembly</strong>: Worked with other senior
+                design engineers overseeing manufacturing team in assembling
+                parts. Tested the overall quality of the finished product
+                alongside the quality control team and removed defective
+                products.
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="#projects" class="layout projects">
+        <h2><span class="underline-accent">Projects</span></h2>
+        <ol class="space project-list">
+          <li class="space project-item">
+            <h3>Automated Golf Ball Launcher</h3>
+            <ul class="space">
+              <li>
+                Designed a ”rack and pinion” launching mechanism for the golf
+                ball launcher and 3D printed the parts.
+              </li>
+              <li>
+                Analyzed and created the dynamic calculation of the launcher to
+                determine the launch angle of the launcher and the required type
+                of spring using MATLAB.
+              </li>
+              <li>
+                Assembled the circuitry of the golf ball launcher to make it
+                fully automated.
+              </li>
+            </ul>
+          </li>
+          <li class="space project-item">
+            <h3>Robot Vehicle</h3>
+            <ul class="space">
+              <li>
+                Designed the propulsion system of the robot using Solidworks
+                based on real-life product.
+              </li>
+              <li>
+                Used limit mates in assembly to set a movement restriction for
+                the propulsion.
+              </li>
+              <li>
+                Used MATLAB to simulates the movement of the robot and
+                constructed new commands to control the movement of the robot.
+              </li>
+              <li>
+                Used a closed loop control type to simulate the movement of the
+                robot.
+              </li>
+            </ul>
+          </li>
+          <li class="space project-item">
+            <h3>Self-programmed Computer Mouse</h3>
+            <ul class="space">
+              <li>
+                Designed and generate commands to control monitor cursor using
+                potentiometers with MATLAB and Arduino.
+              </li>
+              <li>
+                Experimented using the modified mouse in playing Agario.io.
+              </li>
+              <li>
+                Adding new types of commands on Arduino and Matlab to control a
+                servomotor that acts as the accelerator in Agario.io.
+              </li>
+              <li>
+                Programmed a magnetometer that acts as a compass for the robot
+                in Agario.io.
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section class="layout contact">
+        <div class="contact-header">
+          <p class="contact-header-subtitle">Get in touch with me</p>
+          <h2><span class="underline-accent">Contact Form</span></h2>
+        </div>
+        <form>
+          <div class="contact-input-section-flex">
+            <div class="contact-input-zone">
+              <label for="name" class="contact-input-label">Name</label>
+              <input type="text" id="name" class="contact-input" />
+            </div>
+            <div class="contact-input-zone">
+              <label for="email" class="contact-input-label">Email</label>
+              <input type="text" id="email" class="contact-input" />
+            </div>
+          </div>
+          <br />
+          <div class="contact-input-textarea-zone">
+            <label for="message" class="contact-input-label">Message</label>
+            <textarea id="message" rows="10" class="contact-input"></textarea>
+          </div>
+          <button type="submit" class="contact-button">Submit</button>
+        </form>
+
+        <div class="space contact-details">
+          <p>
+            If you prefer to contact me from other platform check details below:
+          </p>
+
+          <details>
+            <summary>Email</summary>
+            <p>
+              <a href="mailto:delvingodeli11@gmail.com">
+                delvingodeli11@gmail.com
+              </a>
+            </p>
+          </details>
+          <details>
+            <summary>Phone</summary>
+            <p>(925)262-7692</p>
+          </details>
+          <details>
+            <summary>JSON Format for the geeks</summary>
+            <pre>
+            <code>
+  {
+    "email": "delvingodeli11@gmail.com",
+    "phone": "(925)262-7692"
+  }
+            </code>
+          </pre>
+          </details>
+        </div>
+      </section>
+
+      <section class="appreciation layout">
+        <h2>
+          <span class="underline-accent">Appreciation Section. Play me!</span>
+        </h2>
+        <div class="appreciation-medias">
+          <canvas id="myCanvas"></canvas>
+          <audio controls>
+            <source src="files/audio.wav" type="audio/wav" />
+            Your browser does not support the audio tag.
+          </audio>
+          <video width="320" height="240" controls>
+            <source src="files/clap.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/a9NIZOvfKpc"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+          />
+        </svg>
+        Made by <b>Delvin Tuankun</b>
+      </p>
+    </footer>
+
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.strokeText("Thanks for tuning in!", 10, 50);
+    </script>
+  </body>
+</html>

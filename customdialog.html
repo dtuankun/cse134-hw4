@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Custom Dialogs</title>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"
+      integrity="sha512-Qr/d6af6cN41/GIKiSmrQd4Y19/fo0YvWhD1VND8O+BsfbFBaZI4K7VVPoUZrd8PzMQ3CE71CkMjhrKf1NbhdQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <button id="alert">Alert</button>
+
+    <div style="margin-top: 2rem">
+      <button id="confirm">Confirm</button>
+      <output id="confirmOutput">
+        The value returned by the confirm method is:
+      </output>
+    </div>
+
+    <div style="margin-top: 2rem">
+      <button id="prompt">Prompt</button>
+      <output id="promptOutput">
+        The value returned by the prompt method is:
+      </output>
+    </div>
+
+    <dialog close id="alertDialog">
+      <p id="alertDialogText">This is an alert</p>
+      <button id="alertDialogButton">OK</button>
+    </dialog>
+
+    <dialog close id="confirmDialog">
+      <p id="confirmDialogText">This is a confirm</p>
+      <button id="confirmDialogCancelButton">Cancel</button>
+      <button id="confirmDialogButton">OK</button>
+    </dialog>
+
+    <dialog close id="promptDialog">
+      <p id="promptDialogText">This is a prompt</p>
+      <input id="promptDialogInput"></input>
+      <div>
+        <button id="promptDialogCancelButton">Cancel</button>
+        <button id="promptDialogButton">OK</button>
+      </div>
+    </dialog>
+
+    <script type="module">
+      import { customAlert, customConfirm, customPrompt } from "./customdialog.js";
+
+      const alertButton = document.getElementById("alert");
+      const confirmButton = document.getElementById("confirm");
+      const promptButton = document.getElementById("prompt");
+
+      const confirmOutput = document.getElementById("confirmOutput");
+      const promptOutput = document.getElementById("promptOutput");
+
+      alertButton.addEventListener("click", () => {
+        customAlert("Hello World!");
+      });
+
+      confirmButton.addEventListener("click", async () => {
+        const result = await customConfirm("Are you sure?");
+        confirmOutput.textContent = `The value returned by the confirm method is: ${result}`;
+      });
+
+      promptButton.addEventListener("click",  async () => {
+        const result = await customPrompt("Fill in message");
+        // purify result
+        const purifiedResult = DOMPurify.sanitize(result);
+
+        promptOutput.innerHTML = `The value returned by the safer prompt method is: ${
+          purifiedResult || "User didn't enter anything"
+        }`;
+      });
+    </script>
+  </body>
+</html>
