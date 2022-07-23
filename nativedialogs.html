@@ -15,27 +15,15 @@
   </head>
   <body>
     <button id="alert">Alert</button>
+    <button id="confirm">Confirm</button>
+    <button id="prompt">Prompt</button>
+    <button id="saferPrompt">Safer Prompt</button>
 
-    <div style="margin-top: 2rem;">
-      <button id="confirm">Confirm</button>
-      <output id="confirmOutput">
-        The value returned by the confirm method is:
-      </output>
-    </div>
+    <hr />
 
-    <div style="margin-top: 2rem;">
-      <button id="prompt">Prompt</button>
-      <output id="promptOutput">
-        The value returned by the prompt method is:
-      </output>
-    </div>
+    <!-- <b onClick="alert('pwned')">hello</b> -->
 
-    <div style="margin-top: 2rem;">
-      <button id="saferPrompt">Safer Prompt</button>
-      <output id="saferPromptOutput">
-        The value returned by the safer prompt method is:
-      </output>
-    </div>
+    <output id="output"></output>
 
     <script>
       const alertButton = document.getElementById("alert");
@@ -43,9 +31,7 @@
       const promptButton = document.getElementById("prompt");
       const saferPromptButton = document.getElementById("saferPrompt");
 
-      const confirmOutput = document.getElementById("confirmOutput");
-      const promptOutput = document.getElementById("promptOutput");
-      const saferPromptOutput = document.getElementById("saferPromptOutput");
+      const output = document.getElementById("output");
 
       alertButton.addEventListener("click", () => {
         window.alert("Hello World!");
@@ -53,13 +39,13 @@
 
       confirmButton.addEventListener("click", () => {
         const result = window.confirm("Are you sure?");
-        confirmOutput.textContent = `The value returned by the confirm method is: ${result}`;
+        output.textContent = `The value returned by the confirm method is: ${result}`;
       });
 
       promptButton.addEventListener("click", () => {
         const result = window.prompt("Fill in message");
 
-        promptOutput.textContent = `The value returned by the prompt method is: ${
+        output.innerHTML = `The value returned by the prompt method is: ${
           result || "User didn't enter anything"
         }`;
       });
@@ -70,7 +56,7 @@
         // purify result
         const purifiedResult = DOMPurify.sanitize(result);
 
-        saferPromptOutput.textContent = `The value returned by the safer prompt method is: ${
+        output.innerHTML = `The value returned by the safer prompt method is: ${
           purifiedResult || "User didn't enter anything"
         }`;
       });
