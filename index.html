@@ -19,7 +19,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="light">
     <header class="layout">
       <a class="header-title" href="/">Delvin Tuankun</a>
       <nav>
@@ -28,6 +28,9 @@
           <li><a href="#experiences">Experiences</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contacts">Contact</a></li>
+          <li class="darkcheck">
+            <button class="dark-button" id="darkbtn">Dark🌜</button>
+          </li>
         </ul>
       </nav>
     </header>
@@ -382,6 +385,14 @@
       var ctx = c.getContext("2d");
       ctx.font = "30px Arial";
       ctx.strokeText("Thanks for tuning in!", 10, 50);
+
+      let isDark = false;
+      const darkbtn = document.getElementById("darkbtn");
+      darkbtn.addEventListener("click", () => {
+        isDark = !isDark;
+        document.body.classList = isDark ? "dark" : "light";
+        darkbtn.textContent = isDark ? "Light🔅" : "Dark🌜";
+      });
     </script>
   </body>
 </html>
