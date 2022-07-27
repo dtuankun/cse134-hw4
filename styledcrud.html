@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styledcrud.css" />
+    <title>HW 4 - Part 4 - Style My CRUD</title>
+  </head>
+  <body>
+    <div class="container layout">
+      <h1><span class="underline-accent">My Blog Posts</span></h1>
+      <ul id="entries" class="entries"></ul>
+
+      <button id="addBtn" class="addBtn">Add</button>
+
+      <dialog id="addDialog">
+        <form method="dialog">
+          <h1><span class="underline-accent">Add New Blog Post</span></h1>
+          <div class="blog-input-area">
+            <div class="blog-input-section-flex">
+              <div class="blog-input-zone">
+                <label for="title" class="blog-input-label">Title</label>
+                <input type="text" id="title" class="blog-input title" />
+              </div>
+              <div class="blog-input-zone">
+                <label for="date" class="blog-input-label">Date</label>
+                <input type="date" id="date" class="blog-input date" />
+              </div>
+            </div>
+            <br />
+            <div class="blog-input-textarea-zone">
+              <label for="summary" class="blog-input-label">Summary</label>
+              <textarea
+                id="summary"
+                rows="10"
+                class="blog-input summary"
+              ></textarea>
+            </div>
+            <div class="blog-input-button-area">
+              <button value="1" class="blog-input-save-button">Save</button>
+              <button value="" class="blog-input-cancel-button">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="editDialog">
+        <form method="dialog">
+          <h1><span class="underline-accent">Edit Blog Post</span></h1>
+          <div class="blog-input-area">
+            <div class="blog-input-section-flex">
+              <div class="blog-input-zone">
+                <label for="title" class="blog-input-label">Title</label>
+                <input type="text" id="title" class="blog-input title" />
+              </div>
+              <div class="blog-input-zone">
+                <label for="date" class="blog-input-label">Date</label>
+                <input type="date" id="date" class="blog-input date" />
+              </div>
+            </div>
+            <br />
+            <div class="blog-input-textarea-zone">
+              <label for="summary" class="blog-input-label">Summary</label>
+              <textarea
+                id="summary"
+                rows="10"
+                class="blog-input summary"
+              ></textarea>
+            </div>
+            <div class="blog-input-button-area">
+              <button value="1" class="blog-input-save-button">Save</button>
+              <button value="" class="blog-input-cancel-button">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="deleteDialog">
+        <form method="dialog">
+          <h1>
+            <span class="underline-accent"
+              >Are You Sure Want To Delete This Blog Post?</span
+            >
+          </h1>
+          <button value="1" class="blog-input-save-button">Yes</button>
+          <button value="" class="blog-input-cancel-button">No</button>
+        </form>
+      </dialog>
+
+      <output></output>
+
+      <script type="module" src="blog.js"></script>
+    </div>
+  </body>
+</html>

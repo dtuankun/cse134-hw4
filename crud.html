@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW 4 - Part 3 - Simple CRUD</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Blog Posts</h1>
+      <ul id="entries"></ul>
+
+      <button id="addBtn">Add</button>
+
+      <dialog id="addDialog">
+        <form method="dialog">
+          <p>Add new blog posts</p>
+
+          <input type="text" class="title" />
+          <input type="date" class="date" />
+          <input type="text" class="summary" />
+
+          <button value="1">Save</button>
+          <button value="">Cancel</button>
+        </form>
+      </dialog>
+
+      <dialog id="editDialog">
+        <form method="dialog">
+          <p>Edit blog posts</p>
+
+          <input type="text" class="title" />
+          <input type="date" class="date" />
+          <input type="text" class="summary" />
+
+          <button value="1">Save</button>
+          <button value="">Cancel</button>
+        </form>
+      </dialog>
+
+      <dialog id="deleteDialog">
+        <form method="dialog">
+          <p>Are you sure???</p>
+
+          <button value="1">Ok</button>
+          <button value="">Cancel</button>
+        </form>
+      </dialog>
+
+      <output></output>
+
+      <script type="module" src="blog.js"></script>
+    </div>
+  </body>
+</html>
