@@ -1,14 +1,29 @@
+/** @type HTMLElement | null */
 const addBtn = document.getElementById("addBtn");
+
+/** @type HTMLElement | null */
 const entries = document.getElementById("entries");
 
+/** @type HTMLElement | null */
 const addDialog = document.getElementById("addDialog");
+
+/** @type HTMLElement | null */
 const editDialog = document.getElementById("editDialog");
+
+/** @type HTMLElement | null */
 const deleteDialog = document.getElementById("deleteDialog");
 
-var lastId = 0;
+/** @type number */
+let lastId = 0;
+
+/** @type number */
 let editId = 0;
+
+/** @type number */
 let deleteId = 0;
-var blogList;
+
+/** @type {{ id: number, title: string, date: string, sum: string }[]} */
+let blogList;
 
 addBtn.addEventListener("click", () => {
   if (typeof addDialog.showModal === "function") {
@@ -24,63 +39,32 @@ function syncBlog() {
 }
 
 function getLastBlogId() {
-  var lastBlog = blogList[blogList.length - 1];
+  let lastBlog = blogList[blogList.length - 1];
   lastId = lastBlog.id + 1;
 }
 
 function addBlogToList(blog) {
-  var listItem = document.createElement("li");
-  var postArea = document.createElement("div");
-  var titleBlog = document.createElement("p");
-  var dateBlog = document.createElement("p");
-  var sumBlog = document.createElement("p");
-  var buttonArea = document.createElement("div");
-  var editButton = document.createElement("button");
-  var deleteButton = document.createElement("button");
-  var editButtonLogo = document.createElement("i");
-  var deleteButtonLogo = document.createElement("i");
-
-  buttonArea.classList.add("blog-post-button-area");
-
-  editButtonLogo.classList.add("ri-pencil-line");
-  editButtonLogo.classList.add("edit-button-logo");
-  deleteButtonLogo.classList.add("ri-delete-bin-line");
-  deleteButtonLogo.classList.add("delete-button-logo");
-
-  editButton.classList.add("editBtn");
-  editButton.textContent = "Edit";
-  editButton.appendChild(editButtonLogo);
-
-  deleteButton.classList.add("deleteBtn");
-  deleteButton.textContent = "Delete";
-  deleteButton.appendChild(deleteButtonLogo);
-
-  postArea.classList.add("post-area");
-  titleBlog.classList.add("blog-post-title");
-  dateBlog.classList.add("blog-post-date");
-  sumBlog.classList.add("blog-post-sum");
-
-  postArea.appendChild(titleBlog);
-  postArea.appendChild(dateBlog);
-  postArea.appendChild(sumBlog);
-  buttonArea.appendChild(editButton);
-  buttonArea.appendChild(deleteButton);
-  postArea.appendChild(buttonArea);
-  listItem.appendChild(postArea);
-
+  let listItem = document.createElement("li");
+  listItem.innerHTML = `
+    <div class="post-area">
+      <p class="blog-post-title">${blog.title}</p>
+      <p class="blog-post-date">${blog.date}</p>
+      <p class="blog-post-sum">${blog.sum}</p>
+      <div class="blog-post-button-area">
+        <button class="editBtn">Edit<i class="ri-pencil-line edit-button-logo"></i></button>
+        <button class="deleteBtn">Edit<i class="ri-delete-bin-line delete-button-logo"></i></button>
+      </div>
+    </div>
+  `;
   listItem.id = blog.id;
-
-  titleBlog.textContent = blog.title;
-  dateBlog.textContent = blog.date;
-  sumBlog.textContent = blog.sum;
 
   entries.appendChild(listItem);
 
-  var deleteButton = listItem.querySelector("button.deleteBtn");
-  var editButton = listItem.querySelector("button.editBtn");
-  var id = listItem.id;
+  let deleteBtn = listItem.querySelector("button.deleteBtn");
+  let editBtn = listItem.querySelector("button.editBtn");
+  let id = listItem.id;
 
-  editButton.addEventListener("click", () => {
+  editBtn.addEventListener("click", () => {
     if (typeof editDialog.showModal === "function") {
       editDialog.showModal();
       editId = id;
@@ -96,7 +80,7 @@ function addBlogToList(blog) {
     }
   });
 
-  deleteButton.addEventListener("click", () => {
+  deleteBtn.addEventListener("click", () => {
     if (typeof deleteDialog.showModal === "function") {
       deleteDialog.showModal();
       deleteId = id;
@@ -109,15 +93,15 @@ function addBlogToList(blog) {
 function showList() {
   if (!!blogList.length) {
     getLastBlogId();
-    for (var item in blogList) {
-      var blog = blogList[item];
+    for (let item in blogList) {
+      let blog = blogList[item];
       addBlogToList(blog);
     }
   }
 }
 
 function findBlog(id) {
-  var response = {
+  let response = {
     blog: "",
     pos: 0,
   };
@@ -139,7 +123,7 @@ function clearForm(title, date, summary) {
 }
 
 function initData() {
-  var blog = [
+  let blog = [
     {
       id: 0,
       title: "How To Deploy Laravel",
@@ -171,7 +155,7 @@ function init() {
 }
 
 function saveBlog(title, date, sum) {
-  var blog = {
+  let blog = {
     id: lastId,
     title: title,
     date: date,
@@ -201,8 +185,8 @@ function addLogic(dialog) {
 }
 
 function updateBlog(title, date, sum) {
-  var blogToUpdate = findBlog(editId).blog;
-  var pos = findBlog(editId).pos;
+  let blogToUpdate = findBlog(editId).blog;
+  let pos = findBlog(editId).pos;
 
   if (!!blogToUpdate) {
     blogToUpdate.title = title;
